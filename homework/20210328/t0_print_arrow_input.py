@@ -7,12 +7,16 @@ print(val)
 ***
 
 
-1.Show:Please in row: 
+1.Show:Please in row:
 2.input:3
-  *  
- *** 
+  *
+ ***
 *****
-  *  
-  *  
-  * 
+  *
+  *
+  *
 """
+a = int(input('arrow'))
+for n in range(a):
+    print(' '*a+'*')
+    print(' '*a+('*'*2+1))
