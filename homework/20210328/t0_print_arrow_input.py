@@ -16,7 +16,7 @@ print(val)
   *
   *
 """
-a = int(input('arrow'))
-for n in range(a):
-    print(' '*a+'*')
-    print(' '*a+('*'*(2+1)))
+def printHead(n):
+    for l in range(1,n):
+        print(" "*(n-l)+"*"*(1 if l==1 else 2*l-1))
+printHead
