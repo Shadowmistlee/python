@@ -19,4 +19,4 @@ print(val)
 a = int(input('arrow'))
 for n in range(a):
     print(' '*a+'*')
-    print(' '*a+('*'*2+1))
+    print(' '*a+('*'*(2+1)))

@@ -16,3 +16,4 @@ for n in range(99999999999999999999999999999999999999):
     t.right(180)
     t.right(6)
     time.sleep(1)
+    t.clear()
