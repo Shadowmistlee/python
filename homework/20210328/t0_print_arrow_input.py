@@ -16,7 +16,12 @@ print(val)
   *
   *
 """
-def printHead(n):
-    for l in range(1,n):
-        print(" "*(n-l)+"*"*(1 if l==1 else 2*l-1))
-printHead
+a=int(input('?'))
+b=0
+c=0
+for n in range(1,a+1):
+    print(' '*(a-b),'*'*(n+b))
+    b+=1
+while c<a:
+    print(' '*(a),'*'*(1))
+    c+=1
