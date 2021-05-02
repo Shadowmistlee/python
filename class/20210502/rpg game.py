@@ -19,8 +19,8 @@ def update_money(money):
     new_money = money + get_money
     print('get money =%d your money %d'%(get_money,new_money))
     return new_money
-def fighting(player_blood, money, a,magic_point,magic_attack,monster_blood,mag_or_phy):
-    status = [0, 0, 0]
+def fighting(player_blood, money, a,magic_point,magic_attack,monster_blood,mag_or_phy,i):
+    status = [0, 0, 0,0,0,0,0]
     monster_blood = r.randint(2,10)
     print('monster have =%dmonster_blood%d hp')
     d = r.randint(1,10)
@@ -28,11 +28,11 @@ def fighting(player_blood, money, a,magic_point,magic_attack,monster_blood,mag_o
         print('monster attacks!')
         player_blood -= 1
         print('player hp',player_blood)
-        mag_or_phy = int(input('1物理攻擊2魔法攻擊(魔法攻擊具有較高攻擊力)')
-        if mag_or_phy == 1:
+        mag_or_phy = input('1物理攻擊2魔法攻擊(魔法攻擊具有較高攻擊力)')
+        if mag_or_phy == '1':
             print('player',a,'uses physical attack!!!')
-            monster_blood -=player_attack
-        elif mag_or_phy == 2:
+            monster_blood -= player_attack
+        elif mag_or_phy == '2':
             if magic_point <= 0:
                 print('you cannot use magical attack now!!!')
                 continue
@@ -42,12 +42,16 @@ def fighting(player_blood, money, a,magic_point,magic_attack,monster_blood,mag_o
                 magic_point -=1
                 print('monster still have',monster_blood,'hp')
         if monster_blood <= 0:
-            print('戰鬥結束,你贏了')
+            print('戰鬥結束，你贏了')
             print('you get ',d,'dollars')
             money += d
-            status[0] = 1
+            status[0] = 0
             status[1] = player_blood
             status[2] = money
+            status[3] = magic_point
+            status[4] = magic_attack
+            status[5] = monster_blood
+            status[6] = mag_or_phy
             return status
         elif player_blood <= 0:
             print('戰鬥結束，你死了')
@@ -56,22 +60,26 @@ def fighting(player_blood, money, a,magic_point,magic_attack,monster_blood,mag_o
             status[0] = 0
             status[1] = player_blood
             status[2] = money
+            status[3] = magic_point
+            status[4] = magic_attack
+            status[5] = monster_blood
+            status[6] = mag_or_phy
             return status
         else:
             continue
-def boss_fight(player_blood, money, a,magic_point,magic_attack,boss_blood,mag_or_phy):
-    status = [0, 0, 0]
+def boss_fight(player_blood, money, a,magic_point,magic_attack,boss_blood,mag_or_phy,i):
+    status = [0, 0, 0,0,0,0,0]
     print('monster have =%dboss_blood%d hp')
     d = r.randint(1,10)
     while True:
         print('boss attacks!')
         player_blood -= boss_attack
         print('player hp',player_blood)
-        mag_or_phy = int(input('1物理攻擊2魔法攻擊(魔法攻擊具有較高攻擊力)')
-        if mag_or_phy == 1:
+        mag_or_phy = input('1物理攻擊2魔法攻擊(魔法攻擊具有較高攻擊力)')
+        if mag_or_phy == '1':
             print('player',a,'uses physical attack!!!')
             boss_blood -=player_attack
-        elif mag_or_phy == 2:
+        elif mag_or_phy == '2':
             if magic_point <= 0:
                 print('you cannot use magical attack now!!!')
                 continue
@@ -84,9 +92,13 @@ def boss_fight(player_blood, money, a,magic_point,magic_attack,boss_blood,mag_or
             print('戰鬥結束,你贏了')
             print('you get 50 dollars')
             money += 50
-            status[0] = 1
+            status[0] = 0
             status[1] = player_blood
             status[2] = money
+            status[3] = magic_point
+            status[4] = magic_attack
+            status[5] = boss_blood
+            status[6] = mag_or_phy
             return status
         elif player_blood <= 0:
             print('戰鬥結束，你死了')
@@ -95,6 +107,10 @@ def boss_fight(player_blood, money, a,magic_point,magic_attack,boss_blood,mag_or
             status[0] = 0
             status[1] = player_blood
             status[2] = money
+            status[3] = magic_point
+            status[4] = magic_attack
+            status[5] = boss_blood
+            status[6] = mag_or_phy
             return status
         else:
             continue
@@ -119,12 +135,12 @@ while True:
             stat[2]=update_money(stat[2])
         elif event == 3:
             print('monster coming!!')
-            stat = fighting(stat[1], stat[2], a)
+            stat = fighting(stat[1], stat[2],stat[3],stat[4],stat[5],stat[6],stat[7], a)
             print('player life = %d, money = %d'%(stat[1], stat[2]))
         elif event == 4:
             print('what do you want?')
-            buy = str(input('1回復魔法($15)2回復HP($10)q離開')
-            if buy == 1:
+            buy = input('1回復魔法($15)2回復HP($10)q離開')
+            if buy == '1':
                 if money <= 14:
                     print('you do not have enough money')
                     pass
@@ -132,7 +148,7 @@ while True:
                     print('magic point recover 5')
                     money -=15
                     pass
-            elif buy ==2:
+            elif buy =='2':
                 if money <=10:
                     print('you do not have enough money')
                     pass
@@ -140,10 +156,10 @@ while True:
                     print('hp recover 5')
                     money -= 10
                     pass
-            elif buy == q:
+            elif buy == 'q':
                 print('你已離開')
                 pass
         elif event ==5:
-            boss_fight
+            stat = boss_fight(stat[1],stat[2],stat[3],stat[4],stat[5],stat[6],stat[7],a)
         else:
             pass
