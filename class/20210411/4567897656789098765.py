@@ -1,9 +1,8 @@
 import random
-ans=random.randint(1,100)
-print(ans)
+ans=random.randint(1,999)
 b=0
-c=100
-e=100
+c=999
+e=999
 d=0
 while True:
     a=int(input('???'))
