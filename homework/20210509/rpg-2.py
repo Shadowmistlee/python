@@ -64,11 +64,44 @@ def store(status: list):
         else:
             continue
     return status
+def boss_fighting(status: list):
+    s = 0.5  # attack speed
+    boss_life = random.randint(20,50)
+    print("boss Life = %d" % boss_life)
+    while True:
+        while True:
+            act = input("Use Magic Attack? y/n: ")
+            if (act == 'y' and status[3] > 1):
+                attack = random.randint(4, 10)
+                status[3] -= 1
+                print('player',a,'uses magical attack')
+                break
+            elif act == 'n':
+                attack = random.randint(1, 3)
+                print('player',a,'uses physical attack')
+                break
+        print("You make damage %d" % attack)
+        boss_life -= attack
+        time.sleep(s)
+        print("boss Life %d" % boss_life)
+        if (boss_life < 1):
+            print('player',a," beats boss")
+            status[2] += random.randint(10, 20)
+            return status
+        else:
+            print("boss Attack")
+            status[1] -= 5
+            time.sleep(s)
+            print("You hurt, Life = %d" % status[1])
+            if (status[1] < 1):
+                print('player',a,"dead")
+                status[0] = 0
+                return status
 #main programe
 sts = [1, 10, 0, 10]  #是否生存/HP/錢/MP
-event_list = [update_life, update_money, fighting, store]
+event_list = [update_life, update_money, fighting, store, boss_fighting]
 while True:
-    rev = input("Do you want 'c' continue 'q' quit the game:")
+    rev = input("Do you want 'c' continue 'b' boss fight 'q' quit the game:")
     if (rev == "c"):
         sts = event_list[random.randint(0, len(event_list) - 1)](sts)
         if (sts[0] == 0):
