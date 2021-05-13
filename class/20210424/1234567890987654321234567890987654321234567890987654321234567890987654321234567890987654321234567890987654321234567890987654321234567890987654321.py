@@ -10,3 +10,4 @@ def tree:
     t.left(120)
     t.forward(40)
     t.left(120)
+tree

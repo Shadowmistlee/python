@@ -59,7 +59,7 @@ def event3(hp,money,magic,skill):
             print('你剩下%d滴血'%(hp))
             t.sleep(1)
         elif bedman_hp<1:
-            print('you kill bedman')
+            print('you kill bad man')
             monery=r.randint(10,20)
             money+=monery
             print('你得到了%d元，你現在有%d元'%(monery,money))

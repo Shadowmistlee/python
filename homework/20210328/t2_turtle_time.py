@@ -9,7 +9,7 @@ import turtle
 import time
 t=turtle.Turtle()
 t.speed(0)
-for n in range(99999999999999999999999999999999999999):
+while True:
     t.forward(150)
     t.right(180)
     t.forward(150)
