@@ -2,6 +2,8 @@ import turtle
 t=turtle.Turtle()
 b = 1
 t.speed(0)
-for n in range(99999999999999999999999999999999):
+n = 1
+while True:
     t.forward(n)
     t.right(90)
+    n +=1

@@ -2,8 +2,10 @@ import turtle
 t=turtle.Turtle()
 t.shape("arrow")
 t.speed(0)
-for n in range(99999999999):
+n = 1
+while True:
     t.penup
     t.forward(n)
-    t.stamp
+    t.stamp()
     t.right(90)
+    n += 1

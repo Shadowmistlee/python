@@ -23,4 +23,4 @@ def who_is_winner(user_list,cmp_list):
         print('computer is winner')
     else:
         print('draw')
-who_is_winner
+who_is_winner(user_list,cmp_list)

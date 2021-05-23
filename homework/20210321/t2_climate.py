@@ -7,9 +7,10 @@ Input1:40
 Output:It's too hot.
 """
 t = int(input('temperature:'))
-if t>=40:
-    print('too hot')
-elif t<=10:
-    print('too cold')
-else:
-    print('comfortable')
+while True:
+    if t>=40:
+        print('too hot')
+    elif t<=10:
+        print('too cold')
+    else:
+        print('comfortable')

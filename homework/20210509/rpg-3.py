@@ -11,7 +11,7 @@ def event2(money):
     print('你撿到了%d塊錢,你現在有%d塊錢'%(moneyy,money))
     return money
 def event3(hp,money,magic,skill):
-    bedman_hp=r.randint(2,10)
+    badman_hp=r.randint(2,10)
     while True:
         art=r.randint(1,3)
         maggc=int(input('請問你是否要選擇魔攻1.是2.否'))
@@ -20,45 +20,45 @@ def event3(hp,money,magic,skill):
                 if skill==0:
                     mag=r.randint(4,8)
                     print('你打了壞人%d滴血'%(mag))
-                    bedman_hp-=mag
-                    print('壞人剩下%d滴血'%(bedman_hp))
+                    badman_hp-=mag
+                    print('壞人剩下%d滴血'%(badman_hp))
                     t.sleep(1)
                 if skill==1:
                     mag=r.randint(1,2)
                     print('你打了壞人%d滴血'%(mag))
-                    bedman_hp-=mag
-                    print('壞人剩下%d滴血'%(bedman_hp))
+                    badman_hp-=mag
+                    print('壞人剩下%d滴血'%(badman_hp))
                     t.sleep(0.5)
                     mag=r.randint(1,2)
                     print('你打了壞人%d滴血'%(mag))
-                    bedman_hp-=mag
-                    print('壞人剩下%d滴血'%(bedman_hp))
+                    badman_hp-=mag
+                    print('壞人剩下%d滴血'%(badman_hp))
                     t.sleep(0.5)
                     mag=r.randint(1,2)
                     print('你打了壞人%d滴血'%(mag))
-                    bedman_hp-=mag
-                    print('壞人剩下%d滴血'%(bedman_hp))
+                    badman_hp-=mag
+                    print('壞人剩下%d滴血'%(badman_hp))
                     t.sleep(0.5)
                     mag=r.randint(1,2)
                     print('你打了壞人%d滴血'%(mag))
-                    bedman_hp-=mag
-                    print('壞人剩下%d滴血'%(bedman_hp))
+                    badman_hp-=mag
+                    print('壞人剩下%d滴血'%(badman_hp))
                     t.sleep(0.5)
                     mag=r.randint(1,2)
                     print('你打了壞人%d滴血'%(mag))
-                    bedman_hp-=mag
-                    print('壞人剩下%d滴血'%(bedman_hp))
+                    badman_hp-=mag
+                    print('壞人剩下%d滴血'%(badman_hp))
                     t.sleep(0.5)
         elif maggc==2:
             print('你打了壞人%d滴血'%(art))
-            bedman_hp-=art
-            print('壞人剩下%d滴血'%(bedman_hp))
+            badman_hp-=art
+            print('壞人剩下%d滴血'%(badman_hp))
             t.sleep(1)
-        if bedman_hp>0:
+        if badman_hp>0:
             hp-=1
             print('你剩下%d滴血'%(hp))
             t.sleep(1)
-        elif bedman_hp<1:
+        elif badman_hp<1:
             print('you kill bad man')
             monery=r.randint(10,20)
             money+=monery

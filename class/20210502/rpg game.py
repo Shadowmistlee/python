@@ -7,7 +7,22 @@ print('       |     |        |       |        |      ')
 print('       |-----         |       |        |   ---')
 print('       | \            |--------        |      |')
 print('       |  \           |                --------')
-
+sts = [1, 10, 10, 1000,  0, 0]
+def write(sts):
+    path = 'ouput.txt'
+    f = open(path,'w')
+    for i in sts:
+        f.write(str(i) + "\n")
+    f.close()
+def read_file():
+    path = 'output.txt'
+    f = open(path, 'r')
+    text = []
+    for line in f:
+        text.append(int(line))
+    print(text)
+    f.close
+    return text
 def update_life(player_blood):
     get_life = r.randint(1,3)
     new_life = player_blood + get_life
@@ -19,11 +34,11 @@ def update_money(money):
     print('get money =%d your money %d'%(get_money,new_money))
     return new_money
 def fighting(player_blood, money, a,magic_point,magic_attack,monster_blood,mag_or_phy,i,weapon):
-    status = [0, 0, 0,0,0,0,0]
+    status = [0, 10, 10,1000,0,0,]
     monster_blood = r.randint(2,10)
     print('monster have =%dmonster_blood%d hp')
     d = r.randint(1,10)
-    if weapon == 0 :
+    if weapon == 1 :
         player_attack = r.randint(1,10)
     else:
         player_attack = r.randint(1,3)
@@ -71,7 +86,6 @@ def fighting(player_blood, money, a,magic_point,magic_attack,monster_blood,mag_o
         else:
             continue
 def boss_fight(player_blood, money, a,magic_point,magic_attack,boss_blood,mag_or_phy,i,weapon):
-
     status = [0, 0, 0, 0, 0, 0, 0]
     print('monster have =%dboss_blood%d hp')
     d = r.randint(1,10)
@@ -114,8 +128,8 @@ def boss_fight(player_blood, money, a,magic_point,magic_attack,boss_blood,mag_or
                 status[6] = mag_or_phy
                 return status
             elif player_blood <= 0:
-                print('戰鬥結束，你死了')
                 print('you lost ',d,' dollars')
+                print('戰鬥結束，你死了')
                 money -= d
                 status[0] = 0
                 status[1] = player_blood
@@ -127,7 +141,6 @@ def boss_fight(player_blood, money, a,magic_point,magic_attack,boss_blood,mag_or
                 return status
             else:
                 continue
-
 '''
 main program
 '''
@@ -144,9 +157,9 @@ weapon = 0
 player_blood =20
 player_attack = 0
 a= input('enter your name :')
-stat = [1, 10, 0]
+stat = read_file()
 while True:
-    c = int(input('你想做什麼?(1查看血量2查看錢3隨機事件4買東西5挑戰boss)'))
+    c = int(input('你想做什麼?(1查看血量2查看錢3隨機事件4買東西5挑戰boss6離開)'))
     if c == 1:
         print(stat[1])
     elif c == 2:
@@ -193,7 +206,11 @@ while True:
         elif buy == 'q':
             print('你已離開')
             pass
-    elif event ==5:
+    elif c ==5:
         boss_fight(player_blood,money,a,magic_point,magic_attack,boss_blood,mag_or_phy,i,weapon)
+    elif c == 6:
+        print('88')
+        sts = write(sts)
+        break
     else:
         pass

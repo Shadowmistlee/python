@@ -1,0 +1,8 @@
+type(10)
+type('10')
+type(10.0)
+type(False)
+type(int('10'))
+type(float(10))
+type(str(10))
+type(bool(10))

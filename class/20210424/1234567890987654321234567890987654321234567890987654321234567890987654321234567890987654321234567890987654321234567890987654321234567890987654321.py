@@ -1,5 +1,5 @@
 import turtle as t
-def tree:
+def tree():
     t.penup()
     t.goto(0,0)
     t.pendown()
@@ -10,4 +10,4 @@ def tree:
     t.left(120)
     t.forward(40)
     t.left(120)
-tree
+tree()
